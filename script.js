@@ -1,19 +1,43 @@
-
-
 var start = document.getElementById("startButton")
 var questions = document.getElementById("questions")
 var timer = document.getElementById("timer")
+var answerBtn = document.getElementsByClassName("answerBtn")
 
 
-let question = [
+let myQuestions = [
+  {
+    question: "Nba all time leading scorer",
+    answers: {
+      a: "lebron james",
+      b: "kareem abdul jabar",
+      c: "steph curry",
+      d: "kawhi leanord",
+    },
+    correctAnswer: "b"
+  },
+  {
+    question: "tool used to make holes in wood?",
+    answers: {
+      a: "hammer ",
+      b: "saw",
+      c: "drill",
+      d: "flashlight",
+    },
+    correctAnswer: "c"
+  },
+  {
+    question: "color of the sky?",
+    answers: {
+      a: "purple",
+      b: "red",
+      c: "orange",
+      d: "blue"
+    },
+    correctAnswer: "d"
+  }
+];
 
-
-
-
-
-]
-
-
+//console.log(myQuestions[0].answers.a)
 
 function startGame(){
     var time = 60
@@ -21,7 +45,7 @@ function startGame(){
      timer.textContent = time
         time--
       
-        if(secondsLeft === 0) {
+        if(time === 0) {
        
             clearInterval(timerInterval);
            
@@ -48,6 +72,13 @@ function endGame(){
 
 
 start.addEventListener("click", startGame());
+i = 0
+
+function check(answer) {
+  questions.textContent = myQuestions[i].question
+  console.log()
+  i++
+}
 
 
 
