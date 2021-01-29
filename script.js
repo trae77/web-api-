@@ -2,6 +2,14 @@ var start = document.getElementById("startButton")
 var questions = document.getElementById("questions")
 var timer = document.getElementById("timer")
 var answerBtn = document.getElementsByClassName("answerBtn")
+var score = document.getElementById("score")
+var aButton = document.getElementById("a")
+
+var bButton = document.getElementById("b")
+var cButton = document.getElementById("c")
+var dButton = document.getElementById("d")
+
+var answerHolder = ""
 
 
 let myQuestions = [
@@ -38,47 +46,58 @@ let myQuestions = [
 ];
 
 //console.log(myQuestions[0].answers.a)
-
+let i = 0
 function startGame(){
+  
+   aButton.textContent = myQuestions[i].question.a
+   bButton.textContent = myQuestions[i].question.b
+   cButton.textContent = myQuestions[i].question.c
+   dButton.textContent = myQuestions[i].question.d
+    i++
     var time = 60
     var timerInterval = setInterval(function(){
      timer.textContent = time
         time--
-      
+     
         if(time === 0) {
        
             clearInterval(timerInterval);
+           alert("game over");
+           endGame();
            
+           return
            
           }
           setTimeout(endGame, 60000)
         }, 1000);
     
-    }
-
-
-
-
-
+    
 
 function endGame(){
 
 
 }
 
-
-
-
-
-
-start.addEventListener("click", startGame());
-i = 0
-
+let index = 0
 function check(answer) {
-  questions.textContent = myQuestions[i].question
-  console.log()
+ 
+  questions.textContent = myQuestions[index].question
+ 
+ if (answer === myQuestions[index].correctAnswer){
+   score = score + 100
+ }else{
+   score = score - 50
+ }
+ 
   i++
 }
+
+}
+
+start.addEventListener("click", startGame());
+
+
+
 
 
 
