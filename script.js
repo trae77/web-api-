@@ -49,11 +49,11 @@ let myQuestions = [
 let i = 0
 function startGame(){
   
-   aButton.textContent = myQuestions[i].question.a
-   bButton.textContent = myQuestions[i].question.b
-   cButton.textContent = myQuestions[i].question.c
-   dButton.textContent = myQuestions[i].question.d
-    i++
+   aButton.textContent = myQuestions[0].question.a
+   bButton.textContent = myQuestions[0].question.b
+   cButton.textContent = myQuestions[0].question.c
+   dButton.textContent = myQuestions[0].question.d
+    
     var time = 60
     var timerInterval = setInterval(function(){
      timer.textContent = time
