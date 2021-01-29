@@ -45,14 +45,17 @@ let myQuestions = [
   }
 ];
 
-//console.log(myQuestions[0].answers.a)
-let i = 0
-function startGame(){
+   
+      let i = 0
+      function startGame(){
+
+    questions.textContent = myQuestions[i].question
+     aButton.textContent = myQuestions[i].answers.a
+     bButton.textContent = myQuestions[i].answers.b
+     cButton.textContent = myQuestions[i].answers.c
+     dButton.textContent = myQuestions[i].answers.d
   
-   aButton.textContent = myQuestions[0].question.a
-   bButton.textContent = myQuestions[0].question.b
-   cButton.textContent = myQuestions[0].question.c
-   dButton.textContent = myQuestions[0].question.d
+     
     
     var time = 60
     var timerInterval = setInterval(function(){
@@ -73,33 +76,50 @@ function startGame(){
     
     
 
-function endGame(){
+            function endGame(){
 
 
-}
+                }
 
-let index = 0
-function check(answer) {
+              
+          function check(answerBtn) {
  
-  questions.textContent = myQuestions[index].question
+      if (answerBtn.getElementById === myQuestions[index].correctAnswer){
+        score = score + 100
+         }else{
+        score = score - 50
+      }
  
- if (answer === myQuestions[index].correctAnswer){
-   score = score + 100
- }else{
-   score = score - 50
- }
- 
-  i++
-}
-
-}
-
-start.addEventListener("click", startGame());
+        }
 
 
 
+      aButton.setAttribute('href', "#");
+      aButton.setAttribute('onclick',  function(){
+            i++
+      });
 
 
+          bButton.setAttribute('href', "#");
+          bButton.setAttribute('onclick', function(){
+            i++
+          } );
+          cButton.setAttribute('href', "#");
+          cButton.setAttribute('onclick', function(){
+                  i++
+          });
+          dButton.setAttribute('href', "#");
+          dButton.setAttribute('onclick', function(){
+                i++
+          });
+        };
+
+          start.addEventListener("click", startGame());
+
+
+
+
+         
 
 
 
