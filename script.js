@@ -3,8 +3,8 @@ var questions = document.getElementById("questions")
 var timer = document.getElementById("timer")
 var answerBtn = document.getElementsByClassName("answerBtn")
 var score = document.getElementById("score")
+var answer = []
 var aButton = document.getElementById("a")
-
 var bButton = document.getElementById("b")
 var cButton = document.getElementById("c")
 var dButton = document.getElementById("d")
@@ -21,7 +21,7 @@ let myQuestions = [
       c: "steph curry",
       d: "kawhi leanord",
     },
-    correctAnswer: "b"
+    correctAnswer: "kareem abdul jabar"
   },
   {
     question: "tool used to make holes in wood?",
@@ -31,7 +31,7 @@ let myQuestions = [
       c: "drill",
       d: "flashlight",
     },
-    correctAnswer: "c"
+    correctAnswer: "drill"
   },
   {
     question: "color of the sky?",
@@ -41,21 +41,52 @@ let myQuestions = [
       c: "orange",
       d: "blue"
     },
-    correctAnswer: "d"
+    correctAnswer: "blue"
   }
 ];
 
    
-      let i = 0
-      function startGame(){
-
+      
+start.addEventListener("click", function(){
+   
+         let i = 0 
+              
     questions.textContent = myQuestions[i].question
      aButton.textContent = myQuestions[i].answers.a
      bButton.textContent = myQuestions[i].answers.b
      cButton.textContent = myQuestions[i].answers.c
      dButton.textContent = myQuestions[i].answers.d
+
   
+
+
      
+     aButton.addEventListener('click',  function(){
+          answer.append(myQuestions[i].answers.a)
+          checkAnswer()
+          i++
+     });
+
+
+         bButton.setAttribute('href', "#");
+         bButton.addEventListener('click',  function(){
+          answer.append(myQuestions[i].answers.b) 
+          checkAnswer()
+          i++
+         } );
+         cButton.setAttribute('href', "#");
+         cButton.addEventListener('click',  function(){
+          answer.append(myQuestions[i].answers.c)
+          checkAnswer()
+          i++
+         });
+         dButton.setAttribute('href', "#");
+         dButton.addEventListener('click',  function(){
+          answer.append(myQuestions[i].answers.d)
+          checkAnswer()
+          i++
+         });
+          
     
     var time = 60
     var timerInterval = setInterval(function(){
@@ -74,7 +105,7 @@ let myQuestions = [
           setTimeout(endGame, 60000)
         }, 1000);
     
-    
+      
 
             function endGame(){
 
@@ -82,58 +113,13 @@ let myQuestions = [
                 }
 
               
-          function check(answerBtn) {
+          function checkAnswer () {
  
-      if (answerBtn.getElementById === myQuestions[index].correctAnswer){
-        score = score + 100
+      if ( answer[i] = myQuestions[i].correctAnswer){
+        score.textContent = score + 100
          }else{
-        score = score - 50
+        time = time - 10
       }
  
         }
-
-
-
-      aButton.setAttribute('href', "#");
-      aButton.setAttribute('onclick',  function(){
-            i++
-      });
-
-
-          bButton.setAttribute('href', "#");
-          bButton.setAttribute('onclick', function(){
-            i++
-          } );
-          cButton.setAttribute('href', "#");
-          cButton.setAttribute('onclick', function(){
-                  i++
-          });
-          dButton.setAttribute('href', "#");
-          dButton.setAttribute('onclick', function(){
-                i++
-          });
-        };
-
-          start.addEventListener("click", startGame());
-
-
-
-
-         
-
-
-
-
-
-// GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
-// THEN I can save my initials and my score
-// ```
+        })
