@@ -10,3 +10,4 @@ I learned how to interact between html and javascript more effectively.
 
 Deployed site
 https://trae77.github.io/web-api-/.
+<img src="./Screenshot (8).png" alt="game">
