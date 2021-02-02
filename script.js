@@ -2,7 +2,7 @@ var start = document.getElementById("startButton")
 var questions = document.getElementById("questions")
 var timer = document.getElementById("timer")
 var answerBtn = document.getElementsByClassName("answerBtn")
-var score = document.getElementById("score")
+var score = document.getElementById("#score")
 var answer = []
 var aButton = document.getElementById("a")
 var bButton = document.getElementById("b")
@@ -45,11 +45,11 @@ let myQuestions = [
   }
 ];
 
+   let i = 0
+ 
+start.addEventListener("click", function Game(){
    
-      
-start.addEventListener("click", function(){
-   
-         let i = 0 
+     
               
     questions.textContent = myQuestions[i].question
      aButton.textContent = myQuestions[i].answers.a
@@ -61,30 +61,40 @@ start.addEventListener("click", function(){
 
 
      
+
+     aButton.setAttribute('href', "#");
      aButton.addEventListener('click',  function(){
-          answer.append(myQuestions[i].answers.a)
-          checkAnswer()
+          answer.push(myQuestions[i].answers.a)
           i++
+          return 
+         
+         
      });
 
 
          bButton.setAttribute('href', "#");
          bButton.addEventListener('click',  function(){
           answer.append(myQuestions[i].answers.b) 
-          checkAnswer()
           i++
+          Game()
+     
+         
          } );
          cButton.setAttribute('href', "#");
          cButton.addEventListener('click',  function(){
           answer.append(myQuestions[i].answers.c)
-          checkAnswer()
           i++
+          Game()
+
+        
          });
          dButton.setAttribute('href', "#");
          dButton.addEventListener('click',  function(){
           answer.append(myQuestions[i].answers.d)
-          checkAnswer()
           i++
+          Game()
+         
+         
          });
           
     
@@ -113,13 +123,16 @@ start.addEventListener("click", function(){
                 }
 
               
-          function checkAnswer () {
- 
-      if ( answer[i] = myQuestions[i].correctAnswer){
+          function checkAnswer (answer) {
+ for (let index = 0; index < myQuestions.length; index++) {
+  
+    if ( answer[index] = myQuestions[index].correctAnswer){
         score.textContent = score + 100
+        Game()
          }else{
         time = time - 10
+        Game()
       }
  
-        }
-        })
+    }
+        }})
