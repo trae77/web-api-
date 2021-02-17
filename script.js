@@ -2,7 +2,7 @@ var start = document.getElementById("startButton")
 var questions = document.getElementById("questions")
 var timer = document.getElementById("timer")
 var answerBtn = document.getElementsByClassName("answerBtn")
-var score = document.getElementById("#score")
+var score = document.getElementById("score")
 var answer = []
 var aButton = document.getElementById("a")
 var bButton = document.getElementById("b")
@@ -10,7 +10,8 @@ var cButton = document.getElementById("c")
 var dButton = document.getElementById("d")
 
 var answerHolder = ""
-
+var points = 0
+score.textContent =  points ;
 
 let myQuestions = [
   {
@@ -45,94 +46,116 @@ let myQuestions = [
   }
 ];
 
-   let i = 0
- 
-start.addEventListener("click", function Game(){
-   
-     
-              
+let i = 0
+
+start.addEventListener("click", function Game() {
+
+  
+  function refresh() {
     questions.textContent = myQuestions[i].question
-     aButton.textContent = myQuestions[i].answers.a
-     bButton.textContent = myQuestions[i].answers.b
-     cButton.textContent = myQuestions[i].answers.c
-     dButton.textContent = myQuestions[i].answers.d
+    aButton.textContent = myQuestions[i].answers.a
+    bButton.textContent = myQuestions[i].answers.b
+    cButton.textContent = myQuestions[i].answers.c
+    dButton.textContent = myQuestions[i].answers.d
+  }
+  
+  refresh()
 
+
+
+
+
+
+
+  aButton.setAttribute('href', "#");
+  aButton.addEventListener('click', function () {
+    time = time - 10
+    answer.push()
+    i = i += 1
+    refresh()
+    
+
+
+  });
+
+
+  bButton.setAttribute('href', "#");
+  bButton.addEventListener('click', function () {
+    if(myQuestions[i].answers.b == myQuestions[i].correctAnswer){
+      points = points += 50;
+      score.textContent =  points ;
+      i = i += 1
+      refresh();
+    } else 
+    // deduct time
+    time = time - 10
+    i = i += 1
+    refresh();
+   
+
+
+  });
+  cButton.setAttribute('href', "#");
+  cButton.addEventListener('click', function () {
+    answer.push(myQuestions[i].answers.c)
+    if(myQuestions[i].answers.c == myQuestions[i].correctAnswer){
+      points = points += 50;
+      score.textContent =  points ;
+      i = i += 1
+      refresh();
+    } else 
+    // deduct time
+    time = time - 10
+    i = i += 1
+    refresh();
+   
   
 
 
-     
-
-     aButton.setAttribute('href', "#");
-     aButton.addEventListener('click',  function(){
-          answer.push(myQuestions[i].answers.a)
-          i++
-          return 
-         
-         
-     });
-
-
-         bButton.setAttribute('href', "#");
-         bButton.addEventListener('click',  function(){
-          answer.append(myQuestions[i].answers.b) 
-          i++
-          Game()
-     
-         
-         } );
-         cButton.setAttribute('href', "#");
-         cButton.addEventListener('click',  function(){
-          answer.append(myQuestions[i].answers.c)
-          i++
-          Game()
-
-        
-         });
-         dButton.setAttribute('href', "#");
-         dButton.addEventListener('click',  function(){
-          answer.append(myQuestions[i].answers.d)
-          i++
-          Game()
-         
-         
-         });
-          
+  });
+  dButton.setAttribute('href', "#");
+  dButton.addEventListener('click', function () {
+    if(myQuestions[i].answers.d == myQuestions[i].correctAnswer){
+      points = points += 50;
+      score.textContent =  points ;
+      i = i += 1
+      refresh();
+    } else 
+    // deduct time
+    time = time - 10
     
-    var time = 60
-    var timerInterval = setInterval(function(){
-     timer.textContent = time
-        time--
-     
-        if(time === 0) {
-       
-            clearInterval(timerInterval);
-           alert("game over");
-           endGame();
-           
-           return
-           
-          }
-          setTimeout(endGame, 60000)
-        }, 1000);
-    
-      
-
-            function endGame(){
+    i = i += 1
+    refresh();
+   
 
 
-                }
+  });
 
-              
-          function checkAnswer (answer) {
- for (let index = 0; index < myQuestions.length; index++) {
-  
-    if ( answer[index] = myQuestions[index].correctAnswer){
-        score.textContent = score + 100
-        Game()
-         }else{
-        time = time - 10
-        Game()
-      }
- 
+
+  var time = 60
+  var timerInterval = setInterval(function () {
+    timer.textContent = time
+    time--
+
+    if (time === 0) {
+
+      clearInterval(timerInterval);
+      alert("game over");
+      endGame();
+
+      return
+
     }
-        }})
+    setTimeout(endGame, 60000)
+  }, 1000);
+
+
+
+  function endGame() {
+
+
+  }
+
+
+
+})
