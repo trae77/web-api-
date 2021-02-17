@@ -52,6 +52,10 @@ start.addEventListener("click", function Game() {
 
   
   function refresh() {
+    console.log(i);
+    if ( i === 3) {
+      endGame();
+    }
     questions.textContent = myQuestions[i].question
     aButton.textContent = myQuestions[i].answers.a
     bButton.textContent = myQuestions[i].answers.b
@@ -66,11 +70,10 @@ start.addEventListener("click", function Game() {
 
 
 
-
   aButton.setAttribute('href', "#");
   aButton.addEventListener('click', function () {
     time = time - 10
-    answer.push()
+    
     i = i += 1
     refresh()
     
@@ -86,10 +89,11 @@ start.addEventListener("click", function Game() {
       score.textContent =  points ;
       i = i += 1
       refresh();
-    } else 
-    // deduct time
-    time = time - 10
-    i = i += 1
+    } else{
+      time = time - 10
+      i = i += 1
+    } 
+  
     refresh();
    
 
@@ -103,10 +107,10 @@ start.addEventListener("click", function Game() {
       score.textContent =  points ;
       i = i += 1
       refresh();
-    } else 
-    // deduct time
-    time = time - 10
-    i = i += 1
+    } else{
+      time = time - 10
+      i = i += 1
+    } 
     refresh();
    
   
@@ -120,11 +124,10 @@ start.addEventListener("click", function Game() {
       score.textContent =  points ;
       i = i += 1
       refresh();
-    } else 
-    // deduct time
-    time = time - 10
-    
-    i = i += 1
+    } else{
+      time = time - 10
+      i = i += 1
+    } 
     refresh();
    
 
@@ -140,7 +143,7 @@ start.addEventListener("click", function Game() {
     if (time === 0) {
 
       clearInterval(timerInterval);
-      alert("game over");
+     
       endGame();
 
       return
@@ -152,8 +155,10 @@ start.addEventListener("click", function Game() {
 
 
   function endGame() {
+    clearInterval(timerInterval);
+console.log("end");
 
-
+   
   }
 
 
