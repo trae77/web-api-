@@ -1,0 +1,27 @@
+body{
+    text-align: center;
+   padding : 40px;
+   margin : 40px;
+    background-color: #23baed;
+}
+h1{
+    font-size: 50px;
+    color: #f90303;
+    font-family: 'Roboto', sans-serif;
+}
+p{
+    font-size: 30px;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+}
+button{
+    font-size: 20px;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
