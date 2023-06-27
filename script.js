@@ -47,17 +47,17 @@ Highscore.textContent = allStorage() ;
 
 let myQuestions = [
   {
-    question: "Nba all time leading scorer",
+    question: "Who is the Nba all time leading scorer",
     answers: {
       a: "lebron james",
       b: "kareem abdul jabar",
       c: "steph curry",
       d: "kawhi leanord",
     },
-    correctAnswer: "kareem abdul jabar"
+    correctAnswer: "lebron james"
   },
   {
-    question: "tool used to make holes in wood?",
+    question: "which tool is used to make holes in wood?",
     answers: {
       a: "hammer ",
       b: "saw",
@@ -67,7 +67,7 @@ let myQuestions = [
     correctAnswer: "drill"
   },
   {
-    question: "color of the sky?",
+    question: "what is the color of the sky?",
     answers: {
       a: "purple",
       b: "red",
